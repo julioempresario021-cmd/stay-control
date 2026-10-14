@@ -1,0 +1,23 @@
+STAYCONTROL — REGISTRO DE VALIDAÇÃO
+===================================
+
+Data: 12 de outubro de 2026
+
+Verificações concluídas:
+
+- sintaxe do aplicativo JavaScript: aprovada;
+- sintaxe do service worker: aprovada;
+- servidor local Python: aprovado;
+- página inicial: resposta HTTP 200;
+- manifesto instalável: resposta HTTP 200 e tipo correto;
+- estrutura de dados e regras do aplicativo: 11 testes aprovados;
+- fluxo de ocupação, limpeza, vistoria e liberação: aprovado;
+- 8 relés principais e 8 auxiliares opcionais: aprovado;
+- Bluetooth com aceite local: aprovado;
+- fita LED RGB: aprovada;
+- personalização administrativa: aprovada;
+- apresentação responsiva nas versões Quarto e Completa: conferida.
+
+O firmware Arduino é uma base para ensaios de bancada. A compilação final e os
+testes elétricos devem ser feitos depois da escolha do Arduino Mega, da placa de
+relés, dos drivers, das fontes e do mapa definitivo de pinos.

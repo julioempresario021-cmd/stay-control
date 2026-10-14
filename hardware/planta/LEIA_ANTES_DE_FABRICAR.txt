@@ -1,0 +1,30 @@
+STAYCONTROL - PLANTA PRELIMINAR DO APARELHO V1
+================================================
+
+Arquivos:
+- STAYCONTROL_Planta_Preliminar_Aparelho_V1.pdf: conjunto de 5 folhas A3.
+- STAYCONTROL_Console_Frente_Preliminar.svg: desenho vetorial da frente.
+- STAYCONTROL_Console_Frente_Preliminar.dxf: desenho CAD em milímetros.
+- STAYCONTROL_Caixa_Controle_Placa_Montagem.svg: placa interna da caixa.
+- STAYCONTROL_Caixa_Controle_Placa_Montagem.dxf: desenho CAD em milímetros.
+
+Dimensões principais:
+- console tátil: 260 x 175 x 55 mm;
+- recorte visível da tela: 158 x 91 mm, cantos R3;
+- tela oficial de 7 polegadas atrás da frente: 189,5 x 120 mm;
+- caixa de controle compacta: 260 x 220 x 100 mm;
+- placa útil interna: 234 x 194 mm.
+
+ANTES DE CORTAR OU USINAR
+-------------------------
+
+1. Compre e meça a tela, o gabinete, extensões USB/RJ45, bornes e fontes.
+2. Imprima a folha do console em escala 1:1 e posicione a tela física.
+3. Confirme a área visível, a posição dos cabos DSI e o acesso ao microSD.
+4. Confirme diâmetros, travas e raios dos conectores antes dos recortes.
+5. Faça primeiro um protótipo em MDF, acrílico ou impressão 3D.
+6. Não coloque 127/220 V dentro da caixa de controle de baixa tensão.
+
+Os arquivos DXF são preliminares e contêm as camadas CUT e GUIDE. A camada
+GUIDE representa o contorno da tela ou a área útil da placa e não deve ser
+cortada automaticamente.

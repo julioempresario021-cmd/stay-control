@@ -1,0 +1,13 @@
+Codigo,Conector,Quantidade de vias,Sinais principais,Destino
+J1,Reles principais,10,"8 comandos; 5 V; GND",Modulo principal de 8 reles
+J2,Reles auxiliares,10,"8 comandos; 5 V; GND",Modulo auxiliar opcional de 8 reles
+J3,Sensores,9,"Entradas 1 a 8; comum",Contatos secos externos
+J4,Fita RGB,4,"+12 V; R; G; B",Fita RGB via driver MOSFET
+J5,Infravermelho,3,"IR TV; IR ar; comum",Dois emissores 940 nm com driver
+J6,Sinalizacao,3,"Vermelho; verde; comum",Sinaleiro externo do quarto
+J7,Alto-falantes,4,"L+; L-; R+; R-",Par de alto-falantes 4 a 8 ohms
+J8,Audio de linha,3,"L; R; GND",DAC USB do Raspberry Pi
+J9,Servico USB,1,USB 2.0,Raspberry Pi para Arduino
+J10,Rede,1,RJ45 Gigabit,Rede da central do hotel
+J11,Alimentacao,6,"5 V; 12 V audio; 12 V RGB; retornos",Fontes reguladas e protegidas
+J12,Expansao,4,"RS-485 A; B; 12 V; GND",Modulo futuro enderecavel

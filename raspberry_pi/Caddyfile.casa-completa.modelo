@@ -1,0 +1,31 @@
+# Troque pelo subdomínio DuckDNS que você registrar, por exemplo
+# staycontrol-minhacasa.duckdns.org. Não use aspas.
+{$STAYCONTROL_DOMAIN} {
+	encode zstd gzip
+
+	@mobileFeed {
+		path /api/mobile/feed
+		method GET
+	}
+	handle @mobileFeed {
+		reverse_proxy 127.0.0.1:4173
+	}
+
+	@mobileWrite {
+		path /api/mobile/read /api/mobile/subscribe
+		method POST
+	}
+	handle @mobileWrite {
+		reverse_proxy 127.0.0.1:4173
+	}
+
+	@staticApp path / /index.html /style.css /model.js /app.js /favicon.svg /manifest.webmanifest /celular.html /celular.css /celular.js /celular.webmanifest /sw.js /assets/staycontrol-logo.jpg /assets/mobile-icon-192.png /assets/mobile-icon-512.png
+	handle @staticApp {
+		reverse_proxy 127.0.0.1:4173
+	}
+
+	# Administração e controle dos equipamentos não ficam públicos.
+	handle {
+		respond "Acesso não permitido" 403
+	}
+}

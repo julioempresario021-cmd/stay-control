@@ -1,0 +1,33 @@
+STAYCONTROL — APLICATIVO PARA ANDROID
+
+O aplicativo do celular já está incluído como PWA em dist/celular.html. Ele
+mostra o histórico de notificações e pode ser instalado pelo Chrome usando
+“Adicionar à tela inicial” quando a central estiver publicada em HTTPS.
+
+ESTADO DO APK
+
+Este pacote ainda não contém um arquivo .apk. O ambiente usado para preparar o
+projeto não tem Android SDK, Java/JDK nem ferramentas Gradle instaladas para
+compilar e assinar um APK. Não renomeie um ZIP ou arquivo HTML para .apk: isso
+não cria um aplicativo Android instalável.
+
+O APK também precisa ser ligado ao endereço da central. Para o histórico, esse
+endereço pode ser um IP local da Raspberry na rede Wi-Fi. Para notificações com
+o aplicativo fechado, é necessário HTTPS público, chaves Web Push e permissão
+de notificação no aparelho. O domínio ainda não foi registrado nem configurado.
+
+INSTALAÇÃO DA VERSÃO WEB NO ANDROID
+
+1. Publique a central em um endereço HTTPS estável conforme o guia
+   CONFIGURACAO_NOTIFICACOES_REMOTAS.md.
+2. Abra https://SEU_ENDERECO/celular.html no Chrome do Android.
+3. Faça o vínculo com o código gerado em Casa Completa > Administrador > Celular.
+4. No menu do Chrome, escolha “Instalar aplicativo” ou “Adicionar à tela
+   inicial”.
+5. Abra pelo ícone instalado e toque em “Ativar notificações”. Autorize os
+   avisos do sistema e envie uma notificação de teste pelo painel.
+
+Para gerar um APK nativo é preciso montar e compilar um projeto Android com um
+identificador de aplicativo, certificado de assinatura e endereço da central.
+Esses dados de produção ainda não existem neste projeto. As imagens, a interface
+PWA, o servidor e o guia de configuração estão na pasta única da entrega.

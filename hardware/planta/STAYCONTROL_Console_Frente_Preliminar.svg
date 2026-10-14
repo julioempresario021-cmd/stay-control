@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260mm" height="175mm" viewBox="0 0 260 175">
+<style>.cut{fill:none;stroke:#000;stroke-width:.3}.guide{fill:none;stroke:#0070c0;stroke-width:.25;stroke-dasharray:3 2}.txt{font:4px sans-serif}</style>
+<rect x="0.5" y="0.5" width="259" height="174" rx="6" class="cut"/>
+<rect x="51" y="42" width="158" height="91" rx="3" class="cut"/>
+<rect x="35.25" y="27.5" width="189.5" height="120" class="guide"/>
+<circle cx="12" cy="163" r="2.1" class="cut"/><circle cx="248" cy="163" r="2.1" class="cut"/><circle cx="12" cy="12" r="2.1" class="cut"/><circle cx="248" cy="12" r="2.1" class="cut"/><text x="55" y="39" class="txt">RECORTE TELA 158 x 91 R3</text><text x="38" y="25" class="txt">CONTORNO DISPLAY 189.5 x 120</text>
+</svg>
