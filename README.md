@@ -2,8 +2,6 @@
 
 Sistema demonstrativo de automação residencial e de quartos de hotel. O projeto reúne uma interface touch para Raspberry Pi, um servidor local, firmware-base para Arduino Mega, monitoramento por sensores e um aplicativo web móvel para notificações.
 
-![Tela móvel STAYCONTROL](documentacao/imagens/STAYCONTROL_App_Celular_Notificacoes.png)
-
 ## O que está no projeto
 
 - **Casa:** controles demonstrativos por ambiente para iluminação, tomadas, climatização, televisão e som.
