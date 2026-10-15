@@ -1,6 +1,6 @@
 Codigo,Conector,Quantidade de vias,Sinais principais,Destino
 J1,Reles principais,10,"8 comandos; 5 V; GND",Modulo principal de 8 reles
-J2,Reles auxiliares,10,"8 comandos; 5 V; GND",Modulo auxiliar opcional de 8 reles
+J2,Barramento de expansao de reles,10,"Interface enderecavel; alimentacao e isolamento a definir","Duas placas auxiliares de 16 canais; pinagem e firmware pendentes; validar antes de conectar"
 J3,Sensores,9,"Entradas 1 a 8; comum",Contatos secos externos
 J4,Fita RGB,4,"+12 V; R; G; B",Fita RGB via driver MOSFET
 J5,Infravermelho,3,"IR TV; IR ar; comum",Dois emissores 940 nm com driver

@@ -13,7 +13,7 @@ As quatro opções aparecem na tela inicial. O acesso administrativo demonstrati
 
 ## Aparelho proposto
 
-Console touch de 7 polegadas com Raspberry Pi 5. Duas opções de instalação: painel na parede e painel com braço articulado aparafusado à superfície. Caixa de controle compacta preliminar de 260 × 220 × 100 mm, com Arduino Mega, 8 relés principais, até 8 auxiliares, entradas de sensores, módulos de áudio, IR e RGB. Ligações externas por conectores removíveis identificados J1 a J12.
+Console touch de 7 polegadas com Raspberry Pi 5. Duas opções de instalação: painel na parede e painel com braço articulado aparafusado à superfície. Caixa de controle compacta preliminar de 260 × 220 × 100 mm, com Arduino Mega, 8 relés principais, expansão planejada de 32 auxiliares em duas placas de 16 canais, entradas de sensores, quatro canais de áudio com alvo de 50 W RMS por canal, IR e RGB. Ligações externas por conectores removíveis identificados J1 a J12. As expansões de hardware exigem revisão do firmware e validação antes da operação.
 
 As dimensões da planta são preliminares, sujeitas à medição das peças, folgas de cabos, dissipação e validação física. As imagens do aparelho são representações de apresentação.
 

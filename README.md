@@ -6,7 +6,7 @@ Sistema demonstrativo de automação residencial e de quartos de hotel. O projet
 
 - **Casa:** controles demonstrativos por ambiente para iluminação, tomadas, climatização, televisão e som.
 - **Casa Completa:** versão residencial com oito entradas para sensores, monitoramento, histórico de eventos e administração.
-- **Quarto:** painel local para equipamentos de um quarto, com oito relés principais e previsão de expansão por mais oito.
+- **Quarto:** painel local demonstrativo com oito relés principais; o hardware planejado prevê expansão futura com duas placas de 16 canais (32 auxiliares) e áudio de quatro canais, até 50 W RMS por canal. Essas expansões ainda não estão implementadas no firmware.
 - **Completa (hotel):** demonstração com painel da recepção, quarto, administração e tarefas da camareira.
 - **Aplicativo móvel:** PWA para consultar notificações da Casa Completa, filtrar alertas e marcar eventos como lidos.
 - **Hardware:** firmware-base do Arduino, protocolo serial, mapa de conectores e desenhos preliminares do painel e do gabinete.

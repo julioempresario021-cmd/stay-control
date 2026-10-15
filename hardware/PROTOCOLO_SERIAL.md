@@ -16,6 +16,8 @@ Configuração: **115200 baud, 8N1**, comandos terminados por `\n`.
 | `STATUS WAITING` | Faz a luz verde piscar. |
 | `RGB 53 184 255 70` | Define R, G, B e brilho de 0 a 100%. |
 
+Limite implementado: 16 relés no total. A expansão planejada adiciona duas placas auxiliares de 16 canais (canais 9 a 40), mas exige revisão do protocolo e do firmware antes de qualquer instalação.
+
 Respostas:
 
 - `READY STAYCONTROL_MEGA_1`: controlador inicializado;

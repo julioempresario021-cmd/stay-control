@@ -24,8 +24,9 @@ O pacote contém as quatro versões definidas no projeto:
    Sem controlador, os sensores funcionam como demonstração na tela.
 
 3. VERSÃO QUARTO
-   Controle local de 8 relés principais, expansão opcional de 8 relés,
-   fita LED RGB, climatização, televisão, som Bluetooth e cardápio.
+   Controle local de 8 relés principais, expansão planejada de 32 relés
+   auxiliares em duas placas de 16 canais, fita LED RGB, climatização,
+   televisão e som Bluetooth com quatro canais previstos de 50 W RMS.
 
 4. VERSÃO COMPLETA (HOTEL)
    Painel da recepção, painel do quarto, administração protegida e área
@@ -57,7 +58,7 @@ PIN: 1215
 
 O administrador pode:
 - alterar os nomes dos botões;
-- ativar ou remover a placa auxiliar de 8 relés;
+- configurar o banco auxiliar planejado de duas placas de 16 relés;
 - editar o cardápio;
 - alterar o texto do hóspede;
 - trocar a logo do cliente.

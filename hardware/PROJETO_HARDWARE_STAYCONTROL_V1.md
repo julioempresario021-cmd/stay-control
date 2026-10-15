@@ -13,12 +13,12 @@ O equipamento de referência mostra uma solução integrada com 8 relés, expans
 ## Capacidade do produto
 
 - 8 saídas principais para iluminação e tomadas comandadas;
-- 8 saídas auxiliares opcionais, habilitadas somente pelo administrador;
+- 32 saídas auxiliares opcionais em duas placas de 16 canais, habilitadas somente pelo administrador;
 - 8 entradas de contato seco, com a entrada 1 reservada à porta;
 - 2 zonas de infravermelho, uma para televisão e outra para ar-condicionado;
 - 1 saída RGB de três canais com alimentação externa;
 - sinalização externa vermelha e verde;
-- áudio estéreo 2 × 15 W com entrada pelo DAC USB do Raspberry Pi;
+- áudio de quatro canais, alvo de 4 × 50 W RMS, com DAC USB de quatro canais;
 - Bluetooth do Raspberry Pi, com confirmação de pareamento na tela;
 - Ethernet Gigabit para integração com a central do hotel;
 - USB de serviço entre Raspberry Pi e Arduino;
@@ -43,13 +43,13 @@ Além da fixação direta na parede, o console poderá usar um braço articulado
 | Código | Conector | Sinais | Uso |
 |---|---|---|---|
 | J1 | Relés principais | 8 comandos isolados | Canais 1 a 8. |
-| J2 | Relés auxiliares | 8 comandos isolados | Canais 9 a 16; placa opcional. |
+| J2 | Barramento das placas auxiliares | Interface e alimentação dimensionadas | Duas placas de 16 relés (canais 9 a 40); pinagem/interface pendente de projeto e validação. |
 | J3 | Sensores | 8 entradas + comum | Porta, janela, presença e entradas futuras. |
 | J4 | RGB | +12 V, R, G, B | Fita RGB com driver MOSFET e fusível próprio. |
 | J5 | Infravermelho | IR TV, IR ar e comum | Drivers de LED IR de alta potência. |
 | J6 | Sinalização | vermelho, verde e comum | Estado externo do quarto. |
-| J7 | Áudio | L+, L−, R+, R− | Dois alto-falantes de 4 a 8 ohms. |
-| J8 | Linha de áudio | L, R e GND | Saída do DAC USB para o amplificador. |
+| J7 | Áudio | Quatro pares de saída de potência | Quatro alto-falantes, um por canal, compatíveis com o amplificador. |
+| J8 | Linha de áudio | Quatro canais analógicos e GND | DAC USB multicanal para os quatro canais do amplificador. |
 | J9 | Serviço USB | USB 2.0 | Comunicação Pi–Arduino e manutenção. |
 | J10 | Rede | RJ45 Gigabit | Comunicação com a central do hotel. |
 | J11 | Alimentação | 5 V e 12 V protegidos | Fontes separadas, identificadas e com fusíveis. |
@@ -58,6 +58,12 @@ Além da fixação direta na parede, o console poderá usar um braço articulado
 ### Regra das conexões externas
 
 Todas as ligações que entram ou saem da caixa de controle serão feitas por conectores de painel removíveis, polarizados, identificados e com trava. Nenhum chicote atravessará diretamente a chapa. Os conectores J1 a J8, J11 e J12 usarão famílias multipinos dimensionadas pela corrente e pela quantidade de vias; J9 será uma extensão USB de painel e J10 uma extensão RJ45 de painel. Cabos externos terão plugue correspondente, alívio de tração e identificação nas duas extremidades. Conectores sem uso receberão tampa protetora.
+
+### Expansão de relés e áudio de quatro canais
+
+O banco planejado tem duas placas auxiliares de 16 canais, somando 32 saídas além dos 8 relés principais. O firmware e o painel atuais demonstram somente 8 relés principais e até 8 auxiliares; canais 17 a 40 exigem interface de comando, mapeamento, atualização de firmware e testes. Não conectar as placas antes de confirmar lógica, polaridade, isolamento, corrente das bobinas e fonte para acionamentos simultâneos.
+
+O áudio planejado tem quatro canais independentes, alvo de até 50 W RMS por canal. A referência é usar dois amplificadores estéreo Classe D compatíveis com essa potência, quatro alto-falantes e fonte dedicada dimensionada para até 200 W de saída. A potência real varia com tensão, impedância, distorção e refrigeração; conferir ficha técnica e ensaios antes de especificar 50 W RMS contínuos por canal. O DAC estéreo atual deve ser substituído por interface USB de quatro canais. As saídas BTL de alto-falantes exigem ligação conforme o fabricante, sem unir negativos de canais.
 
 ## Mapa de pinos do Arduino Mega
 

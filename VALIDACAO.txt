@@ -12,7 +12,9 @@ Verificações concluídas:
 - manifesto instalável: resposta HTTP 200 e tipo correto;
 - estrutura de dados e regras do aplicativo: 11 testes aprovados;
 - fluxo de ocupação, limpeza, vistoria e liberação: aprovado;
-- 8 relés principais e 8 auxiliares opcionais: aprovado;
+- Firmware/painel demonstrativo: 8 relés principais e até 8 auxiliares; testado nessa faixa.
+- Duas placas auxiliares de 16 (32 auxiliares): planejadas, ainda não implementadas nem validadas.
+- Áudio 4 × 50 W RMS: especificação planejada; hardware, fonte e saída multicanal ainda não validados.
 - Bluetooth com aceite local: aprovado;
 - fita LED RGB: aprovada;
 - personalização administrativa: aprovada;

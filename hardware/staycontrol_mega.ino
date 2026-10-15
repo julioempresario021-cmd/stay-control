@@ -1,6 +1,7 @@
 /*
   STAYCONTROL — firmware-base para Arduino Mega 2560
-  8 relés principais + 8 auxiliares, 8 entradas de contato seco,
+  Firmware demonstrativo: 8 relés principais + 8 auxiliares, 8 entradas de contato seco,
+  banco futuro de 32 auxiliares e áudio futuro 4 x 50 W RMS ainda não implementados,
   sinalização externa e fita RGB.
 
   ATENÇÃO: firmware de bancada. Confira o mapa de pinos e o nível ativo da
