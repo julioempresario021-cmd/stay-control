@@ -1,0 +1,12 @@
+{
+  "name": "staycontrol",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.2",
+    "web-push": "^3.6.7"
+  }
+}

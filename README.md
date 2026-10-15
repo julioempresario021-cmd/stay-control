@@ -36,7 +36,9 @@ O firmware e os desenhos são protótipos. Confirme pinagem, fontes, proteção 
 
 ## Notificações no celular
 
-O aplicativo móvel é uma PWA, localizada em `dist/celular.html`; este repositório não contém APK. A consulta ao histórico funciona quando o celular alcança a central. Para notificações push com o aplicativo fechado, é necessário publicar a central em HTTPS, configurar Web Push/VAPID e autorizar notificações no aparelho. O guia está em [`documentacao/CONFIGURACAO_NOTIFICACOES_REMOTAS.md`](documentacao/CONFIGURACAO_NOTIFICACOES_REMOTAS.md).
+O aplicativo móvel é uma PWA, localizada em `dist/celular.html`; este repositório não contém APK. A API em `api/mobile/` atende o domínio Vercel e guarda celulares, configurações e alertas no Neon Postgres. A configuração da produção está em [`documentacao/NOTIFICACOES_CLOUD_VERCEL.md`](documentacao/NOTIFICACOES_CLOUD_VERCEL.md). A Raspberry Pi pode enviar eventos de sensores à nuvem por HTTPS; ela não recebe comandos de relé pela internet.
+
+O envio push exige chaves VAPID no ambiente de produção e autorização de notificações no celular. A instalação e o primeiro teste dependem de publicar a API e vincular o celular pela área do administrador.
 
 Não exponha a API de controle dos equipamentos à internet. Use o modelo Caddy fornecido, que limita o acesso público ao aplicativo móvel e às rotas necessárias para as notificações.
 

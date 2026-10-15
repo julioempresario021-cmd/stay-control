@@ -3,6 +3,7 @@ from pathlib import Path
 import os, json, sqlite3, secrets, hashlib, hmac, time, threading, uuid
 from datetime import datetime, timezone
 from urllib.parse import urlparse
+from urllib.request import Request, urlopen
 from contextlib import contextmanager
 
 class Notifications:
@@ -65,6 +66,8 @@ class Notifications:
         if index not in range(1,9) or type(opened) is not bool:raise ValueError('Entrada inválida.')
         with self.lock:
             key=str(index);prior=self.values.get(key);self.values[key]=opened
+            if source=='hardware' and prior!=opened:
+                threading.Thread(target=self.publish_cloud_sensor,args=(index,opened),daemon=True).start()
             # A primeira leitura fechada inicializa o contato sem criar um evento.
             if prior==opened or (prior is None and not opened):return None
             sensors=self.config.get('sensors',[])
@@ -73,6 +76,19 @@ class Notifications:
             if not sensor['enabled']:return None
             alarm=opened and self.config['armed']
             return self.record('Abertura detectada' if alarm else 'Sensor '+('aberto' if opened else 'fechado'),sensor['label']+' · '+('aberto' if opened else 'fechado')+(' · demonstração' if source=='simulation' else ''),'alert' if alarm else 'info',source)
+    @staticmethod
+    def publish_cloud_sensor(index,opened):
+        base=os.environ.get('STAYCONTROL_CLOUD_URL','').strip().rstrip('/')
+        token=os.environ.get('STAYCONTROL_PI_TOKEN','').strip()
+        if not base or not token:return
+        parsed=urlparse(base)
+        if parsed.scheme!='https' or not parsed.hostname:return
+        try:
+            request=Request(base+'/api/mobile/pi/sensor',data=json.dumps({'index':index,'open':opened}).encode(),headers={'Content-Type':'application/json','Authorization':'Bearer '+token},method='POST')
+            with urlopen(request,timeout=8) as response:
+                if response.status >= 300:raise RuntimeError('Cloud sensor event rejected')
+        except Exception as error:
+            print('STAYCONTROL: não foi possível sincronizar evento do sensor com a nuvem:',type(error).__name__)
     def record(self,title,body,severity='info',source='central'):
         notice={'id':str(uuid.uuid4()),'title':title,'body':body,'severity':severity,'at':datetime.now(timezone.utc).isoformat(),'source':source}
         with self.db() as db:

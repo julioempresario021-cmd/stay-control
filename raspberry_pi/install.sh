@@ -42,6 +42,7 @@ User=$TARGET_USER
 Group=$TARGET_USER
 WorkingDirectory=$INSTALL_DIR
 Environment=STAYCONTROL_DATA_DIR=$TARGET_HOME/.local/share/staycontrol
+EnvironmentFile=-/etc/staycontrol/cloud.env
 ExecStart=$INSTALL_DIR/venv/bin/python $INSTALL_DIR/server.py --port 4173 --no-browser --serial auto
 Restart=always
 RestartSec=3
