@@ -14,6 +14,7 @@
 - `POST /api/mobile/login`: cria sessão de administrador por dez minutos; PIN inicial demonstrativo `1215`.
 - `GET /api/mobile/admin/status`: lista celulares, estado do Web Push e configuração dos oito sensores.
 - `POST /api/mobile/pair` e `/api/mobile/revoke`: vincula ou revoga um celular.
+- `POST /api/mobile/contacts`: salva telefone de referência e e-mail de alertas do administrador.
 - `GET /api/mobile/feed`, `POST /api/mobile/read` e `/api/mobile/subscribe`: histórico, leitura e assinatura push do aparelho.
 - `POST /api/mobile/config`, `/api/mobile/sensor` e `/api/mobile/test`: administração, simulação de sensor e teste.
 - `POST /api/mobile/pi/sensor`: evento recebido da Raspberry Pi com token de integração.
@@ -27,6 +28,8 @@ O banco Neon injeta `DATABASE_URL` no ambiente de produção. O envio push reque
 - `STAYCONTROL_VAPID_SUBJECT` (por exemplo, `mailto:juliojcfm@bol.com.br`)
 
 O PIN da demonstração é definido por `STAYCONTROL_ADMIN_PIN`. Antes de operar com hóspedes, substitua o PIN curto e de demonstração por autenticação adequada.
+
+Na aba **Administrador → Celular**, salve o telefone do responsável e o e-mail que receberá alertas de abertura. O telefone é um contato de referência; as notificações no próprio celular usam o aplicativo Minha Casa pareado e autorizado, não SMS. Para enviar os alertas por e-mail, configure no ambiente Production da Vercel `RESEND_API_KEY` como segredo e `STAYCONTROL_ALERT_FROM_EMAIL` com um remetente autorizado no serviço de e-mail. Sem essas duas variáveis, o endereço fica salvo e a tela informa que o envio ainda não está ativo. O e-mail é enviado para eventos de abertura classificados como alerta.
 
 Para conectar sensores físicos, gere um valor aleatório longo (por exemplo, `openssl rand -hex 32`) e salve o mesmo valor como variável secreta `STAYCONTROL_PI_TOKEN` na Vercel e no arquivo local protegido `/etc/staycontrol/cloud.env` da Raspberry:
 
