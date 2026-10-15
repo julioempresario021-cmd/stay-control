@@ -134,6 +134,20 @@ body[data-edition="casa-completa"] .guest-room-number strong {font-size:22px;}
 .sensor-card .button {width:100%;font-size:11px;margin-top:8px;}
 .sensor-status {margin-left:auto;padding:5px;border-radius:6px;background:#dff2e8;color:#246d56;}
 .sensor-status.opened {background:#fff1d3;color:#8c5718;}
+
+/* Room occupancy colors: the card and its text label communicate the same state. */
+.room-card{border-left-width:5px;transition:background-color .2s,border-color .2s,box-shadow .2s}
+.room-card.free{background:linear-gradient(135deg,#f1fbf4,#e5f6eb);border-color:#7bc99a;border-left-color:#259653}
+.room-card.occupied{background:linear-gradient(135deg,#fff3f2,#fde7e7);border-color:#e9a0a2;border-left-color:#c93d47}
+.room-card.cleaning{background:linear-gradient(135deg,#fffbed,#fff4d6);border-color:#e8cb78;border-left-color:#c18b08}
+.room-card.waiting{background:linear-gradient(135deg,#fff6ed,#ffead8);border-color:#edb47f;border-left-color:#d96c18}
+.room-card.free .badge{background:#d5f1df;color:#176b3b}
+.room-card.occupied .badge{background:#f9d9da;color:#9c2630}
+.room-card.cleaning .badge{background:#f8e9b6;color:#765400}
+.room-card.waiting .badge{background:#ffdfc2;color:#8f3e0a}
+.room-card.waiting .badge .icon{animation:roomWaitingPulse 1.4s ease-in-out infinite}
+@keyframes roomWaitingPulse{50%{opacity:.38}}
+@media(prefers-reduced-motion:reduce){.room-card.waiting .badge .icon{animation:none}}
 .sensor-card.alarm {border-color:#c25462;background:#fff5f5;}
 .sensor-alert {color:#a33244!important;font-weight:700;}
 .monitor-admin-actions {display:flex;gap:8px;flex-wrap:wrap;margin:14px 0;}
