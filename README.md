@@ -4,11 +4,11 @@ Sistema demonstrativo de automação residencial e de quartos de hotel. O projet
 
 ## O que está no projeto
 
-- **Casa:** controles demonstrativos por ambiente para iluminação, tomadas, climatização, televisão e som.
-- **Casa Completa:** versão residencial com oito entradas para sensores, monitoramento, histórico de eventos e administração.
-- **Quarto:** painel local demonstrativo com oito relés principais; o hardware planejado prevê expansão futura com duas placas de 16 canais (32 auxiliares) e áudio de quatro canais, até 50 W RMS por canal. Essas expansões ainda não estão implementadas no firmware.
-- **Completa (hotel):** demonstração com painel da recepção, quarto, administração e tarefas da camareira.
-- **Aplicativo móvel:** PWA para consultar notificações da Casa Completa, filtrar alertas e marcar eventos como lidos.
+- **Casa Essencial:** controles demonstrativos por ambiente para iluminação, tomadas, climatização, televisão e som.
+- **Casa Premium:** versão residencial com oito entradas para sensores, monitoramento, histórico de eventos e administração.
+- **Hotel Essencial:** painel local demonstrativo com oito relés principais; o hardware planejado prevê expansão futura com duas placas de 16 canais (32 auxiliares) e áudio de quatro canais, até 50 W RMS por canal. Essas expansões ainda não estão implementadas no firmware.
+- **Hotel Premium:** demonstração com painel da recepção, quarto, administração e tarefas da camareira.
+- **Aplicativo móvel:** PWA para consultar notificações da Casa Premium, filtrar alertas e marcar eventos como lidos.
 - **Hardware:** firmware-base do Arduino, protocolo serial, mapa de conectores e desenhos preliminares do painel e do gabinete.
 - **Raspberry Pi:** instalador do serviço e modo quiosque para a tela touch.
 
@@ -66,7 +66,7 @@ Controles de infravermelho, áudio, Bluetooth, troca de músicas e alguns efeito
 
 ### Quatro modos e duas capacidades de hardware
 
-O programa mantém quatro modos: **Quarto, Completa (hotel), Casa e Casa Completa**. As configurações de hardware básica e ampliada são alternativas de capacidade, não novos modos do programa:
+O programa mantém quatro modos: **Hotel Essencial, Hotel Premium, Casa Essencial e Casa Premium**. As configurações de hardware básica e ampliada são alternativas de capacidade, não novos modos do programa:
 
 - **Básica:** oito relés principais e áudio estéreo com PAM8610, sem garantia de potência contínua de 15 W por canal.
 - **Ampliada:** oito relés principais mais duas placas de 16 canais, totalizando 32 auxiliares e 40 relés; áudio com alvo de quatro saídas de 50 W RMS, sujeito a homologação do amplificador, DAC, fonte e refrigeração.
