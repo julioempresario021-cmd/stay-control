@@ -115,6 +115,15 @@ body[data-edition="casa"] .guest-room-number strong {font-size:22px;}
 .track-controls .button {flex:1;min-height:48px;}
 @media(max-width:480px){.track-controls > div {flex-wrap:wrap;}.track-controls .button {min-width:140px;}}
 .edition-cards {grid-template-columns:repeat(2,minmax(0,1fr));}
+.edition-groups {display:grid;gap:24px;position:relative;z-index:1;min-width:0;}
+.edition-group-title {display:flex;align-items:baseline;gap:14px;margin:0 0 12px;color:#f4f9f9;font-size:20px;}
+.edition-group-title span {font:500 11px/1.5 'Plus Jakarta Sans',Arial,sans-serif;color:#a9c5d2;}
+.edition-group .edition-card {min-height:360px;padding:23px;}
+.edition-group .edition-icon {margin:15px 0 14px;}
+.edition-group .edition-card h3 {font-family:'Fraunces',Georgia,serif;font-size:25px;font-weight:600;letter-spacing:-.035em;}
+.edition-group .edition-card>p {margin:9px 0 17px;}
+.edition-group .edition-card ul {gap:8px;margin-bottom:18px;}
+@media(max-width:600px){.edition-group-title {flex-direction:column;gap:2px;}.edition-group .edition-cards {grid-template-columns:1fr;}.edition-group .edition-card {min-height:0;}}
 body[data-edition="casa-completa"] .guest-nav {grid-template-columns:repeat(5,minmax(0,1fr));}
 body[data-edition="casa-completa"] .guest-room-number strong {font-size:22px;}
 .house-navigation {display:flex;gap:10px;margin:8px 0 22px;flex-wrap:wrap;}
