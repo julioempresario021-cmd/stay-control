@@ -1,6 +1,14 @@
 # STAYCONTROL — Documento consolidado do projeto
 
-Atualização: 13/10/2026. Este documento complementa os documentos de apresentação em PDF e Word e registra as últimas decisões do projeto.
+Atualização: 15/10/2026. Este documento complementa os documentos de apresentação em PDF e Word e registra as últimas decisões do projeto.
+
+## Cotação auditada e capacidades de hardware
+
+A [cotação auditada de 15/10/2026](cotacao_2026-10-15/STAYCONTROL_Cotacao_Auditada_Materiais_2026-10-15.pdf) consolida 55 itens, referências de preço, estimativas, condições de fornecimento e limitações técnicas. O [formulário CSV](cotacao_2026-10-15/Formulario_Precos_Fornecedores.csv) permite receber propostas comerciais por código de item.
+
+Os quatro modos do software permanecem os mesmos. Existem duas opções de capacidade de hardware: básica com oito relés e áudio estéreo, e ampliada com 32 auxiliares adicionais e alvo de quatro saídas de 50 W RMS. As opções não devem ser somadas como conjuntos completos para uma mesma central. A sinalização externa é opcional nas versões residenciais.
+
+A auditoria confirmou que a ponte serial e o firmware atuais aceitam apenas 16 relés e não implementam emissão IR. A expansão até 40 canais e o áudio ampliado exigem desenvolvimento e testes. O gabinete compacto é preliminar e não está validado para todas as placas e fontes da ampliação. A cotação não libera a compra em lote antes do piloto.
 
 ## Quatro versões
 

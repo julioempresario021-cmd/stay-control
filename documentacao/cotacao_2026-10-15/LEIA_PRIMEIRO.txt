@@ -1,0 +1,12 @@
+STAYCONTROL - COTAÇÃO AUDITADA - 15/10/2026
+
+O PDF é a versão final para enviar às lojas e solicitar propostas.
+A página HTML contém o mesmo conteúdo para consultar, imprimir ou copiar para um editor.
+O CSV contém todos os itens e campos vazios para o fornecedor preencher. Abrir usando separador ponto e vírgula.
+
+Quatro modos de programa: Quarto, Hotel completo, Casa e Casa completa.
+Duas capacidades de hardware: básica e ampliada. Não comprar ambas para a mesma central.
+
+OBS = preço visível em anúncio; REF = referência condicionada; EST = estimativa sem proposta comercial.
+Os totais são planejamento, não preço fechado. Verificar itens esgotados, peças a desenvolver e teste de áudio.
+Frete, projeto elétrico, instalação e serviços complementares não incluídos.

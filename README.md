@@ -54,9 +54,21 @@ Controles de infravermelho, áudio, Bluetooth, troca de músicas e alguns efeito
 
 ## Documentação
 
+- [`documentacao/cotacao_2026-10-15/STAYCONTROL_Cotacao_Auditada_Materiais_2026-10-15.pdf`](documentacao/cotacao_2026-10-15/STAYCONTROL_Cotacao_Auditada_Materiais_2026-10-15.pdf): cotação auditada atual, com 55 itens, preços de referência, estimativas, fontes e condições para compra.
+- [`documentacao/cotacao_2026-10-15/Formulario_Precos_Fornecedores.csv`](documentacao/cotacao_2026-10-15/Formulario_Precos_Fornecedores.csv): relação editável para os fornecedores preencherem marca, modelo, preço, prazo e garantia. Usar separador ponto e vírgula.
+- [`documentacao/cotacao_2026-10-15/STAYCONTROL_Cotacao_Editavel.html`](documentacao/cotacao_2026-10-15/STAYCONTROL_Cotacao_Editavel.html): versão de consulta e impressão da cotação.
 - [`documentacao/DOCUMENTO_FINAL_STAYCONTROL.md`](documentacao/DOCUMENTO_FINAL_STAYCONTROL.md): descrição consolidada do projeto.
 - [`documentacao/STAYCONTROL_Projeto_Detalhado_Inova_EFG.pdf`](documentacao/STAYCONTROL_Projeto_Detalhado_Inova_EFG.pdf): material para apresentação.
-- [`documentacao/STAYCONTROL_Lista_de_Compras.xlsx`](documentacao/STAYCONTROL_Lista_de_Compras.xlsx): lista de componentes.
+- [`documentacao/STAYCONTROL_Lista_de_Compras.xlsx`](documentacao/STAYCONTROL_Lista_de_Compras.xlsx): planilha anterior de planejamento; para solicitar propostas, priorizar a cotação auditada de 15/10/2026.
 - [`hardware/PROJETO_HARDWARE_STAYCONTROL_V1.md`](hardware/PROJETO_HARDWARE_STAYCONTROL_V1.md): arquitetura e interfaces.
 - [`hardware/planta/`](hardware/planta/): desenhos preliminares em PDF, DXF e SVG.
 - [`VALIDACAO.txt`](VALIDACAO.txt): validações executadas na versão demonstrativa.
+
+### Quatro modos e duas capacidades de hardware
+
+O programa mantém quatro modos: **Quarto, Completa (hotel), Casa e Casa Completa**. As configurações de hardware básica e ampliada são alternativas de capacidade, não novos modos do programa:
+
+- **Básica:** oito relés principais e áudio estéreo com PAM8610, sem garantia de potência contínua de 15 W por canal.
+- **Ampliada:** oito relés principais mais duas placas de 16 canais, totalizando 32 auxiliares e 40 relés; áudio com alvo de quatro saídas de 50 W RMS, sujeito a homologação do amplificador, DAC, fonte e refrigeração.
+
+A auditoria identificou que o firmware e a ponte serial atuais aceitam somente 16 relés e não implementam transmissão infravermelha. Os canais 17 a 40, o áudio ampliado e o controle real de TV e ar-condicionado exigem desenvolvimento e ensaio físico. A fonte de áudio de 12 V / 3 A da configuração básica não atende ao conjunto de 200 W planejado; a ampliada precisa de alimentação dimensionada separadamente. A cotação distingue preços de anúncios, referências condicionadas e provisões estimadas e não constitui ordem de compra integralmente liberada.

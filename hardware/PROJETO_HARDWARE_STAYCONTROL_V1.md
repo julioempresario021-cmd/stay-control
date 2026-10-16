@@ -97,7 +97,8 @@ TV e ar-condicionado serão controlados por infravermelho. O compressor do ar-co
 
 - Raspberry Pi 5: fonte USB-C oficial de 27 W.
 - Arduino, sensores e interfaces: fonte regulada de 5 V independente, dimensionada para todos os relés ativos.
-- Áudio: fonte de 12 V dedicada ao amplificador.
+- Áudio básico: fonte de 12 V / 3 A dedicada ao módulo estéreo PAM8610, com potência real a validar.
+- Áudio ampliado: alimentação dedicada dimensionada para quatro canais, referência inicial de 24 V na classe de 350 W. Confirmar tensão, corrente contínua, potência, proteções e compatibilidade com o amplificador escolhido; não usar a fonte de 12 V / 3 A como alimentação do conjunto planejado de 200 W.
 - RGB e sinalização: fonte de 12 V calculada pela potência por metro da fita, com margem e fusível.
 - Todas as fontes devem compartilhar referência somente onde o esquema exigir, evitando laços de terra no áudio.
 

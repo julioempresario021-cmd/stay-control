@@ -1,5 +1,15 @@
 # STAYCONTROL — guia de compra e segurança
 
+## Cotação vigente de 15 de outubro de 2026
+
+Para solicitar propostas comerciais, usar a [cotação auditada em PDF](cotacao_2026-10-15/STAYCONTROL_Cotacao_Auditada_Materiais_2026-10-15.pdf) e o [formulário por item para fornecedores](cotacao_2026-10-15/Formulario_Precos_Fornecedores.csv). A cotação revisa compatibilidade, estoque, preços e duplicidades; a planilha abaixo permanece como planejamento anterior.
+
+O software tem quatro modos: Quarto, Completa (hotel), Casa e Casa Completa. A cotação oferece duas capacidades de hardware: básica com oito relés e áudio estéreo; ampliada com oito principais mais 32 auxiliares e alvo de áudio de quatro canais de 50 W RMS. O banco ampliado e o áudio requerem revisão técnica e integração; o firmware e o servidor atuais limitam os relés a 16 canais. A transmissão IR também depende de implementação.
+
+Os conjuntos de áudio e fontes das duas capacidades são alternativas. Não somar as fontes de 12 V / 3 A e de 24 V para o mesmo conjunto de áudio. A potência anunciada de um módulo não substitui ensaio nas condições especificadas. O total da cotação inclui provisões estimadas e deve ser confirmado por proposta comercial.
+
+## Planilha de planejamento anterior
+
 Este pacote inclui a planilha `STAYCONTROL_Lista_de_Compras.xlsx`. Abra a aba **Resumo** e altere somente:
 
 1. a quantidade de quartos;
