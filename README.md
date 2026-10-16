@@ -1,5 +1,7 @@
 # STAYCONTROL
 
+Acesse a demonstração: https://staycontrol-demo.vercel.app/
+
 Sistema demonstrativo de automação residencial e de quartos de hotel. O projeto reúne uma interface touch para Raspberry Pi, um servidor local, firmware-base para Arduino Mega, monitoramento por sensores e um aplicativo web móvel para notificações.
 
 ## O que está no projeto
