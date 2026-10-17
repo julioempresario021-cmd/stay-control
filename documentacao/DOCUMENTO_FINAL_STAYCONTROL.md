@@ -1,6 +1,6 @@
 # STAYCONTROL — Documento consolidado do projeto
 
-Atualização: 15/10/2026. Este documento complementa os documentos de apresentação em PDF e Word e registra as últimas decisões do projeto.
+Atualização documental: 17/10/2026. Este documento complementa os documentos de apresentação em PDF e Word e registra as últimas decisões do projeto.
 
 ## Cotação auditada e capacidades de hardware
 
@@ -17,7 +17,7 @@ A auditoria confirmou que a ponte serial e o firmware atuais aceitam apenas 16 r
 3. **Quarto:** central independente para o hóspede, com os mesmos controles de equipamentos, cardápio e administração.
 4. **Completa:** painel do quarto, recepção, administração e camareira, com fluxo de ocupação, arrumação, pendências e vistoria.
 
-As quatro opções aparecem na tela inicial. O acesso administrativo demonstrativo usa PIN 1215. Os controles incluem volume, música anterior e próxima música; a troca de faixas é demonstrativa e requer aceite do pedido Bluetooth.
+A entrada atual começa pela escolha Residência ou Hotel. Em seguida, apenas Essencial e Premium do ambiente escolhido são exibidas. A documentação está separada em [Residência](residencia/README.md) e [Hotel](hotel/README.md); os nomes antigos Casa/Casa Completa/Quarto/Completa nesta descrição correspondem respectivamente a Casa Essencial/Casa Premium/Hotel Essencial/Hotel Premium. O acesso administrativo demonstrativo usa PIN 1215. Os controles incluem volume, música anterior e próxima música; a troca de faixas é demonstrativa e requer aceite do pedido Bluetooth.
 
 ## Aparelho proposto
 

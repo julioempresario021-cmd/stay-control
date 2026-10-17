@@ -4,6 +4,17 @@ Acesse a demonstração: https://staycontrol-demo.vercel.app/
 
 Sistema demonstrativo de automação residencial e de quartos de hotel. O projeto reúne uma interface touch para Raspberry Pi, um servidor local, firmware-base para Arduino Mega, monitoramento por sensores e um aplicativo web móvel para notificações.
 
+## Projetos separados por ambiente
+
+A apresentação começa pela escolha **Residência** ou **Hotel**. Depois, o cliente vê somente as versões Essencial e Premium do ambiente selecionado.
+
+- [Projeto Residência](projetos/residencia/README.md): documentação independente em [documentacao/residencia](documentacao/residencia/README.md).
+- [Projeto Hotel](projetos/hotel/README.md): documentação independente em [documentacao/hotel](documentacao/hotel/README.md).
+- Documentos navegáveis para apresentação: `dist/docs/residencia/index.html` e `dist/docs/hotel/index.html`, com páginas próprias para Essencial e Premium e opção de impressão.
+- [Pesquisa das 20 referências e mudanças de layout](documentacao/design/REFERENCIAS_LAYOUT_2026-10-17.md).
+
+A base técnica compartilhada permanece neste repositório. A separação de ambientes não representa servidores ou implantações independentes já criados.
+
 ## O que está no projeto
 
 - **Casa Essencial:** controles demonstrativos por ambiente para iluminação, tomadas, climatização, televisão e som.
