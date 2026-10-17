@@ -1,4 +1,4 @@
-const CACHE = 'staycontrol-rgb-bed-position-v20';
+const CACHE = 'staycontrol-audio-rgb-groups-v22';
 const APP = [
   './', './index.html', './style.css', './theme.css', './model.js', './app.js',
   './docs/residencia/index.html', './docs/residencia/essencial.html', './docs/residencia/premium.html',
