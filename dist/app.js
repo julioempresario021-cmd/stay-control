@@ -12,15 +12,14 @@
   let editionFamily=null;
   const landingDemo={light:true,temp:23};
   const discoveryQuiz={step:0,answers:Array(8).fill(null)};
-  const discoveryQuestions=[
-    {text:'Qual ambiente você quer automatizar?',multiple:false,options:['Residência','Quarto','Suíte','Hotel/motel','Outro ambiente']},
-    {text:'O que você gostaria de controlar?',multiple:true,options:['Iluminação','Ar-condicionado','TV e áudio','Cortinas','Mais de uma opção']},
-    {text:'Quantos cômodos, quartos ou suítes quer incluir?',multiple:false,options:['1','2–5','6–10','Mais de 10']},
-    {text:'Como os equipamentos são controlados hoje?',multiple:false,options:['Interruptores e controles separados','Um sistema central','Ainda estou planejando']},
-    {text:'O que é mais importante para você?',multiple:false,options:['Conforto','Praticidade','Economia de energia','Modernizar o ambiente','Melhorar a experiência dos hóspedes']},
-    {text:'Você já tem os equipamentos instalados?',multiple:false,options:['Sim, todos','Alguns','Ainda não']},
-    {text:'Qual é o tamanho do projeto?',multiple:false,options:['Um ambiente','Vários ambientes','Imóvel inteiro','Ainda não sei']},
-    {text:'Como prefere conversar sobre uma solução?',multiple:false,options:['WhatsApp','Ligação','Ainda estou conhecendo o projeto']}
+  const discoveryQuestions=[{"text":"Qual ambiente você quer automatizar?","multiple":false,"options":["Residência","Quarto","Suíte","Hotel/motel","Outro ambiente"]},
+    {"text":"O que você gostaria de controlar?","multiple":true,"options":["Iluminação","Ar-condicionado","TV e áudio","Cortinas","Mais de uma opção"]},
+    {"text":"Quantos cômodos, quartos ou suítes quer incluir?","multiple":false,"options":["1","2–5","6–10","11–20","Mais de 20"]},
+    {"text":"Como os equipamentos são controlados hoje?","multiple":false,"options":["Interruptores e controles separados","Um sistema central","Ainda estou planejando","Controle pelo celular","Controle por voz"]},
+    {"text":"O que é mais importante para você?","multiple":false,"options":["Conforto","Praticidade","Economia de energia","Modernizar o ambiente","Melhorar a experiência dos hóspedes"]},
+    {"text":"Você já tem os equipamentos instalados?","multiple":false,"options":["Sim, todos","Alguns","Ainda não","Ainda vou escolher os equipamentos","Não sei quais são compatíveis"]},
+    {"text":"Qual é o tamanho do projeto?","multiple":false,"options":["Um ambiente","Vários ambientes","Imóvel inteiro","Ainda não sei","Projeto em fases"]},
+    {"text":"Como prefere conversar sobre uma solução?","multiple":false,"options":["WhatsApp","Ligação","Ainda estou conhecendo o projeto","E-mail","Quero conhecer o aplicativo primeiro"]}
   ];
   function renderDiscoveryQuiz(){
     const root=document.getElementById('sc-quiz-content');if(!root)return;
