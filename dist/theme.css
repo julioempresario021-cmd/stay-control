@@ -318,3 +318,5 @@ body[data-edition="escolher"]{background:#f3f6fb}.edition-page{display:block;iso
 .sc-suite-stage[data-rgb=on] .sc-suite-bed-rgb{opacity:.9}
 @media(max-width:720px){.sc-suite-audio-controls,.sc-suite-rgb-controls{padding:11px 9px}.sc-suite-audio-controls>div{align-items:flex-start}.sc-suite-audio-controls strong,.sc-suite-rgb-controls strong{font-size:9px}.sc-suite-next-track{font-size:9px}.sc-suite-bed-rgb{left:14%;right:13%;bottom:13%;height:34%}}
 @media(prefers-reduced-motion:reduce){.sc-suite-bed-rgb{transition:none}}
+
+.sc-suite-audio-controls[data-state=on]{border-color:#4c86a0;box-shadow:0 0 0 1px #4c86a027,inset 0 1px #ffffff10}.sc-suite-audio-controls #sc-suite-audio-status{color:#8cb8ad;font-size:8px;letter-spacing:.02em}
