@@ -358,3 +358,9 @@ body[data-edition="escolher"]{background:#f3f6fb}.edition-page{display:block;iso
 .sc-suite-rgb-controls .sc-suite-color-label{margin:0;color:#b7cadd;font-size:10px}
 .sc-suite-rgb-controls input[type=color]{justify-self:end;width:38px;height:30px;padding:2px;border:1px solid #35546d;border-radius:6px;background:#132b40;cursor:pointer}
 @media(max-width:720px){.sc-suite-device-grid>.sc-suite-device:last-child{grid-column:1/-1}.sc-suite-rgb-controls{padding:11px 9px}}
+
+/* Agrupa liga/desliga e temperatura do ar-condicionado */
+.sc-suite-climate-controls{display:grid;gap:7px;margin-top:10px;padding:10px;border:1px solid #29425b;border-radius:9px;background:#0d1e30}
+.sc-suite-climate-controls>.sc-suite-device{width:100%;min-height:58px;margin:0}
+.sc-suite-climate-controls .sc-suite-temp-controls{margin-top:0;background:#11253a}
+.sc-suite-climate-controls[data-state=off] .sc-suite-temp-controls{opacity:.68}
