@@ -1,4 +1,4 @@
-const CACHE = 'staycontrol-quiz-calm-v15';
+const CACHE = 'staycontrol-suite-music-v16';
 const APP = [
   './', './index.html', './style.css', './theme.css', './model.js', './app.js',
   './docs/residencia/index.html', './docs/residencia/essencial.html', './docs/residencia/premium.html',
