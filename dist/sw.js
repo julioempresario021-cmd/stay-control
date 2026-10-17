@@ -1,4 +1,4 @@
-const CACHE = 'staycontrol-landing-v8';
+const CACHE = 'staycontrol-obsidian-v9';
 const APP = [
   './', './index.html', './style.css', './theme.css', './model.js', './app.js',
   './docs/residencia/index.html', './docs/residencia/essencial.html', './docs/residencia/premium.html',
