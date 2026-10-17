@@ -11,9 +11,13 @@
   let role = edition !== 'completa' ? 'guest' : 'reception', page = 'rooms', filter = 'all', query = '', currentRoom = '101', guestTab = 'lights', bank = 'main', adminUnlocked = false, adminTab = 'buttons', adminRoom = '101';
   let editionFamily=null;
   const landingDemo={light:true,temp:23};
-  const suiteDemo={ceiling:false,bedside:true,ac:true,temp:22,tv:false,curtains:true,sound:false};
+  const suiteDemo={ceiling:false,bedside:true,ac:true,temp:22,tv:false,curtains:true,sound:false,rgb:false,rgbColor:'#66c5e8',volume:35,track:0};
   let suiteAudioContext=null,suiteAudioMaster=null,suiteAudioTimer=null,suiteAudioStep=0;
-  const suiteMelody=[523.25,659.25,783.99,659.25,587.33,659.25,880,659.25,523.25,392,493.88,587.33,440,587.33,783.99,587.33];
+  const suiteTracks=[
+    {name:'Suíte em calma',notes:[523.25,659.25,783.99,659.25,587.33,659.25,880,659.25,523.25,392,493.88,587.33,440,587.33,783.99,587.33]},
+    {name:'Brisa da noite',notes:[440,523.25,659.25,587.33,392,493.88,587.33,523.25,349.23,440,523.25,493.88,392,493.88,659.25,587.33]},
+    {name:'Manhã tranquila',notes:[587.33,698.46,880,783.99,523.25,659.25,783.99,698.46,440,523.25,698.46,659.25,493.88,587.33,783.99,698.46]}
+  ];
   function playSuiteNote(frequency){
     if(!suiteAudioContext||!suiteAudioMaster)return;
     const now=suiteAudioContext.currentTime,osc=suiteAudioContext.createOscillator(),env=suiteAudioContext.createGain();
@@ -21,11 +25,11 @@
   }
   function startSuiteMusic(){
     const AudioContextClass=window.AudioContext||window.webkitAudioContext;if(!AudioContextClass)return;
-    if(!suiteAudioContext){suiteAudioContext=new AudioContextClass();suiteAudioMaster=suiteAudioContext.createGain();suiteAudioMaster.gain.value=0.62;suiteAudioMaster.connect(suiteAudioContext.destination);}
-    suiteAudioContext.resume();suiteAudioMaster.gain.cancelScheduledValues(suiteAudioContext.currentTime);suiteAudioMaster.gain.setTargetAtTime(0.62,suiteAudioContext.currentTime,0.08);
+    if(!suiteAudioContext){suiteAudioContext=new AudioContextClass();suiteAudioMaster=suiteAudioContext.createGain();suiteAudioMaster.gain.value=0.75*(suiteDemo.volume/100);suiteAudioMaster.connect(suiteAudioContext.destination);}
+    suiteAudioContext.resume();suiteAudioMaster.gain.cancelScheduledValues(suiteAudioContext.currentTime);suiteAudioMaster.gain.setTargetAtTime(0.75*(suiteDemo.volume/100),suiteAudioContext.currentTime,0.08);
     if(suiteAudioTimer)return;
-    suiteAudioStep=0;playSuiteNote(suiteMelody[suiteAudioStep++]);
-    suiteAudioTimer=window.setInterval(()=>{if(!suiteDemo.sound){stopSuiteMusic();return;}playSuiteNote(suiteMelody[suiteAudioStep++%suiteMelody.length]);},680);
+    suiteAudioStep=0;playSuiteNote(suiteTracks[suiteDemo.track].notes[suiteAudioStep++]);
+    suiteAudioTimer=window.setInterval(()=>{if(!suiteDemo.sound){stopSuiteMusic();return;}playSuiteNote(suiteTracks[suiteDemo.track].notes[suiteAudioStep++%suiteTracks[suiteDemo.track].notes.length]);},680);
   }
   function stopSuiteMusic(){
     if(suiteAudioTimer){window.clearInterval(suiteAudioTimer);suiteAudioTimer=null;}
@@ -33,19 +37,24 @@
   }
   function suiteDemoMarkup(image){
     const control=(key,title,detail,glyph,activeText='Ligado',inactiveText='Desligado')=>'<button class="sc-suite-device" type="button" data-action="suite-toggle" data-component="'+key+'" data-state="'+(suiteDemo[key]?'on':'off')+'" aria-pressed="'+suiteDemo[key]+'" aria-label="'+title+': '+(suiteDemo[key]?activeText:inactiveText)+'"><span class="sc-suite-device-icon">'+icon(glyph)+'</span><span class="sc-suite-device-copy"><strong>'+title+'</strong><small>'+detail+'</small></span><span class="sc-suite-device-state"><i></i><small data-suite-state>'+ (suiteDemo[key]?activeText:inactiveText)+'</small></span></button>';
-    return '<section class="sc-suite-demo" id="suite-demo" aria-labelledby="sc-suite-title"><div class="sc-wrap"><div class="sc-section-heading"><div><span class="sc-eyebrow">SIMULAÇÃO INTERATIVA</span><h2 id="sc-suite-title">Uma suíte que responde ao seu toque.</h2></div><p>Experimente vários componentes em um só painel.<br>Os controles são demonstrativos.</p></div><div class="sc-suite-console"><div class="sc-suite-stage" id="sc-suite-stage" data-ceiling="'+(suiteDemo.ceiling?'on':'off')+'" data-bedside="'+(suiteDemo.bedside?'on':'off')+'" data-tv="'+(suiteDemo.tv?'on':'off')+'" data-curtains="'+(suiteDemo.curtains?'open':'closed')+'"><img src="'+image+'" alt="Suíte de hotel usada como cenário para a simulação dos controles" loading="lazy"><span class="sc-suite-lamp-glow" aria-hidden="true"></span><span class="sc-suite-bedside-glow" aria-hidden="true"></span><span class="sc-suite-curtain sc-suite-curtain-left" aria-hidden="true"></span><span class="sc-suite-curtain sc-suite-curtain-right" aria-hidden="true"></span><span class="sc-suite-tv-glow" aria-hidden="true"></span><div class="sc-suite-stage-top"><span><i></i> SUÍTE 204</span><span>DEMONSTRAÇÃO</span></div><div class="sc-suite-stage-bottom"><span id="sc-suite-active-count">2 de 5 sistemas ligados</span><span id="sc-suite-curtain-status">Cortinas abertas</span></div><div class="sc-suite-stage-climate"><span>CLIMA DO AMBIENTE</span><strong><span id="sc-suite-temp-display">'+suiteDemo.temp+'</span><small>°C</small></strong><small id="sc-suite-ac-status">AR-CONDICIONADO LIGADO</small></div></div><div class="sc-suite-controls"><div class="sc-suite-controls-top"><span class="sc-suite-live"><i></i> PAINEL DE CONTROLE</span><span>PRÉVIA AO VIVO</span></div><div class="sc-suite-device-grid">'+control('ceiling','Luz principal','Iluminação do teto','light')+control('bedside','Luz de cabeceira','Luminária ao lado da cama','light')+control('ac','Ar-condicionado','Temperatura ajustável','snow')+control('tv','Televisão','Controle de energia','tv')+control('curtains','Cortinas','Abertura da suíte','grid','Abertas','Fechadas')+control('sound','Som ambiente','Áudio da suíte','music')+'</div><div class="sc-suite-temp-controls"><span><small>AJUSTE DE TEMPERATURA</small><strong>Defina o clima ideal</strong></span><div><button type="button" data-action="suite-temp" data-step="-1" aria-label="Diminuir temperatura da suíte">'+icon('minus')+'</button><strong><span id="sc-suite-temp">'+suiteDemo.temp+'</span><small>°C</small></strong><button type="button" data-action="suite-temp" data-step="1" aria-label="Aumentar temperatura da suíte">'+icon('plus')+'</button></div></div></div></div><p class="sc-suite-disclaimer">Simulação visual: os comandos não acionam equipamentos reais nem alteram as configurações do aplicativo. Ao ligar o som, toca uma trilha suave gerada para demonstração.</p></div></section>';
+    return '<section class="sc-suite-demo" id="suite-demo" aria-labelledby="sc-suite-title"><div class="sc-wrap"><div class="sc-section-heading"><div><span class="sc-eyebrow">SIMULAÇÃO INTERATIVA</span><h2 id="sc-suite-title">Uma suíte que responde ao seu toque.</h2></div><p>Experimente vários componentes em um só painel.<br>Os controles são demonstrativos.</p></div><div class="sc-suite-console"><div class="sc-suite-stage" id="sc-suite-stage" data-ceiling="'+(suiteDemo.ceiling?'on':'off')+'" data-bedside="'+(suiteDemo.bedside?'on':'off')+'" data-tv="'+(suiteDemo.tv?'on':'off')+'" data-curtains="'+(suiteDemo.curtains?'open':'closed')+'" data-rgb="'+(suiteDemo.rgb?'on':'off')+'"><img src="'+image+'" alt="Suíte de hotel usada como cenário para a simulação dos controles" loading="lazy"><span class="sc-suite-lamp-glow" aria-hidden="true"></span><span class="sc-suite-bedside-glow" aria-hidden="true"></span><span class="sc-suite-curtain sc-suite-curtain-left" aria-hidden="true"></span><span class="sc-suite-curtain sc-suite-curtain-right" aria-hidden="true"></span><span class="sc-suite-tv-glow" aria-hidden="true"></span><span class="sc-suite-bed-rgb" aria-hidden="true"></span><div class="sc-suite-stage-top"><span><i></i> SUÍTE 204</span><span>DEMONSTRAÇÃO</span></div><div class="sc-suite-stage-bottom"><span id="sc-suite-active-count">3 de 7 sistemas ligados</span><span id="sc-suite-curtain-status">Cortinas abertas</span></div><div class="sc-suite-stage-climate"><span>CLIMA DO AMBIENTE</span><strong><span id="sc-suite-temp-display">'+suiteDemo.temp+'</span><small>°C</small></strong><small id="sc-suite-ac-status">AR-CONDICIONADO LIGADO</small></div></div><div class="sc-suite-controls"><div class="sc-suite-controls-top"><span class="sc-suite-live"><i></i> PAINEL DE CONTROLE</span><span>PRÉVIA AO VIVO</span></div><div class="sc-suite-device-grid">'+control('ceiling','Luz principal','Iluminação do teto','light')+control('bedside','Luz de cabeceira','Luminária ao lado da cama','light')+control('ac','Ar-condicionado','Temperatura ajustável','snow')+control('tv','Televisão','Controle de energia','tv')+control('curtains','Cortinas','Abertura da suíte','grid','Abertas','Fechadas')+control('sound','Som ambiente','Trilha instrumental suave','music')+control('rgb','Fita LED RGB','Iluminação ao redor da cama','light')+'</div><div class="sc-suite-audio-controls"><div><span><small>TRILHA DA SUÍTE</small><strong id="sc-suite-track-name">'+suiteTracks[suiteDemo.track].name+'</strong></span><button type="button" class="sc-suite-next-track" data-action="suite-next-track">Próxima faixa <span aria-hidden="true">›</span></button></div><label for="sc-suite-volume">Volume <output id="sc-suite-volume-value">'+suiteDemo.volume+'%</output></label><input id="sc-suite-volume" type="range" min="0" max="100" step="1" value="'+suiteDemo.volume+'" aria-label="Volume do som ambiente da suíte"></div><div class="sc-suite-rgb-controls"><span><small>FITA RGB AO REDOR DA CAMA</small><strong id="sc-suite-rgb-status">'+(suiteDemo.rgb?'Ligada':'Desligada')+'</strong></span><label class="sc-suite-color-label" for="sc-suite-rgb-color">Cor da fita</label><input id="sc-suite-rgb-color" type="color" value="'+suiteDemo.rgbColor+'" aria-label="Escolher cor da fita LED RGB"></div><div class="sc-suite-temp-controls"><span><small>AJUSTE DE TEMPERATURA</small><strong>Defina o clima ideal</strong></span><div><button type="button" data-action="suite-temp" data-step="-1" aria-label="Diminuir temperatura da suíte">'+icon('minus')+'</button><strong><span id="sc-suite-temp">'+suiteDemo.temp+'</span><small>°C</small></strong><button type="button" data-action="suite-temp" data-step="1" aria-label="Aumentar temperatura da suíte">'+icon('plus')+'</button></div></div></div></div><p class="sc-suite-disclaimer">Simulação visual: os comandos não acionam equipamentos reais nem alteram as configurações do aplicativo. É possível ajustar o volume e trocar a trilha; a fita LED RGB pode ser ligada e mudar de cor.</p></div></section>';
   }
   function renderSuiteDemo(){
     const root=document.getElementById('sc-suite-demo-root');if(!root)return;
     const toggles=root.querySelectorAll('[data-action="suite-toggle"]');
     toggles.forEach(button=>{const key=button.dataset.component,on=Boolean(suiteDemo[key]),state=button.querySelector('[data-suite-state]');button.dataset.state=on?'on':'off';button.setAttribute('aria-pressed',String(on));const active=key==='curtains'?'Abertas':'Ligado',inactive=key==='curtains'?'Fechadas':'Desligado';button.setAttribute('aria-label',button.querySelector('strong').textContent+': '+(on?active:inactive));if(state)state.textContent=on?active:inactive;});
-    const stage=document.getElementById('sc-suite-stage');if(stage){stage.dataset.ceiling=suiteDemo.ceiling?'on':'off';stage.dataset.bedside=suiteDemo.bedside?'on':'off';stage.dataset.tv=suiteDemo.tv?'on':'off';stage.dataset.curtains=suiteDemo.curtains?'open':'closed';}
-    const systems=['ceiling','bedside','ac','tv','sound'].filter(key=>suiteDemo[key]).length;
-    const count=document.getElementById('sc-suite-active-count');if(count)count.textContent=systems+' de 5 sistemas ligados';
+    const stage=document.getElementById('sc-suite-stage');if(stage){stage.dataset.ceiling=suiteDemo.ceiling?'on':'off';stage.dataset.bedside=suiteDemo.bedside?'on':'off';stage.dataset.tv=suiteDemo.tv?'on':'off';stage.dataset.curtains=suiteDemo.curtains?'open':'closed';stage.dataset.rgb=suiteDemo.rgb?'on':'off';stage.style.setProperty('--sc-suite-rgb',suiteDemo.rgbColor);}
+    const systems=['ceiling','bedside','ac','tv','sound','curtains','rgb'].filter(key=>suiteDemo[key]).length;
+    const count=document.getElementById('sc-suite-active-count');if(count)count.textContent=systems+' de 7 sistemas ligados';
     const curtains=document.getElementById('sc-suite-curtain-status');if(curtains)curtains.textContent='Cortinas '+(suiteDemo.curtains?'abertas':'fechadas');
     const temp=document.getElementById('sc-suite-temp');if(temp)temp.textContent=String(suiteDemo.temp);
     const display=document.getElementById('sc-suite-temp-display');if(display)display.textContent=String(suiteDemo.temp);
     const ac=document.getElementById('sc-suite-ac-status');if(ac)ac.textContent=suiteDemo.ac?'AR-CONDICIONADO LIGADO':'AR-CONDICIONADO DESLIGADO';
+    const track=document.getElementById('sc-suite-track-name');if(track)track.textContent=suiteTracks[suiteDemo.track].name;
+    const volume=document.getElementById('sc-suite-volume');if(volume&&Number(volume.value)!==suiteDemo.volume)volume.value=String(suiteDemo.volume);
+    const volumeValue=document.getElementById('sc-suite-volume-value');if(volumeValue)volumeValue.textContent=suiteDemo.volume+'%';
+    const rgbColor=document.getElementById('sc-suite-rgb-color');if(rgbColor&&rgbColor.value!==suiteDemo.rgbColor)rgbColor.value=suiteDemo.rgbColor;
+    const rgbStatus=document.getElementById('sc-suite-rgb-status');if(rgbStatus)rgbStatus.textContent=suiteDemo.rgb?'Ligada':'Desligada';
   }
   const discoveryQuiz={step:0,answers:Array(8).fill(null)};
   const discoveryQuestions=[{"text":"Qual ambiente você quer automatizar?","multiple":false,"options":["Residência","Quarto","Suíte","Hotel/motel","Outro ambiente"]},
@@ -416,6 +425,18 @@ function landingPage(){
     renderDiscoveryQuiz();
     document.getElementById('sc-quiz-content')?.querySelector('legend, .sc-quiz-result h3')?.focus?.({preventScroll:true});
   });
+  document.addEventListener('input',event=>{
+    if(edition!=='escolher'||editionFamily)return;
+    if(event.target.id==='sc-suite-volume'){
+      suiteDemo.volume=Math.max(0,Math.min(100,Number(event.target.value)||0));
+      if(suiteAudioContext&&suiteAudioMaster){suiteAudioMaster.gain.cancelScheduledValues(suiteAudioContext.currentTime);suiteAudioMaster.gain.setTargetAtTime(suiteDemo.sound?0.75*(suiteDemo.volume/100):0.0001,suiteAudioContext.currentTime,0.05);}
+      const value=document.getElementById('sc-suite-volume-value');if(value)value.textContent=suiteDemo.volume+'%';
+    }
+    if(event.target.id==='sc-suite-rgb-color'){
+      suiteDemo.rgbColor=event.target.value;
+      const stage=document.getElementById('sc-suite-stage');if(stage)stage.style.setProperty('--sc-suite-rgb',suiteDemo.rgbColor);
+    }
+  });
   document.addEventListener('click', async event => {
     const button = event.target.closest('[data-action]'); if(!button || button.disabled)return;
     event.preventDefault(); const a=button.dataset.action, id=button.dataset.room;
@@ -444,6 +465,7 @@ function landingPage(){
     if(a==='quiz-prev'){discoveryQuiz.step=Math.max(0,discoveryQuiz.step-1);renderDiscoveryQuiz();document.getElementById('sc-quiz-content')?.querySelector('legend')?.focus?.({preventScroll:true});}
     if(a==='quiz-restart'){discoveryQuiz.step=0;discoveryQuiz.answers=Array(8).fill(null);renderDiscoveryQuiz();document.getElementById('sc-quiz-content')?.querySelector('legend')?.focus?.({preventScroll:true});}
     if(a==='suite-toggle'&&edition==='escolher'&&!editionFamily){const key=button.dataset.component;if(Object.prototype.hasOwnProperty.call(suiteDemo,key)&&typeof suiteDemo[key]==='boolean'){suiteDemo[key]=!suiteDemo[key];if(key==='sound'){if(suiteDemo.sound)startSuiteMusic();else stopSuiteMusic();}renderSuiteDemo();}}
+    if(a==='suite-next-track'&&edition==='escolher'&&!editionFamily){suiteDemo.track=(suiteDemo.track+1)%suiteTracks.length;suiteAudioStep=0;if(suiteDemo.sound)playSuiteNote(suiteTracks[suiteDemo.track].notes[suiteAudioStep++]);renderSuiteDemo();}
     if(a==='suite-temp'&&edition==='escolher'&&!editionFamily){const step=Number(button.dataset.step);if(step===1||step===-1){suiteDemo.temp=Math.min(30,Math.max(16,suiteDemo.temp+step));renderSuiteDemo();}}
     if(a==='landing-demo-light'&&edition==='escolher'&&!editionFamily){landingDemo.light=!landingDemo.light;document.getElementById('sc-demo-light').setAttribute('aria-pressed',String(landingDemo.light));document.getElementById('sc-light-label').textContent=landingDemo.light?'Ligada':'Desligada';document.getElementById('sc-hero-visual').dataset.light=landingDemo.light?'on':'off';}
     if(a==='landing-demo-temp'&&edition==='escolher'&&!editionFamily){const step=Number(button.dataset.step);if(step===1||step===-1){landingDemo.temp=Math.min(30,Math.max(16,landingDemo.temp+step));document.getElementById('sc-demo-temp').textContent=String(landingDemo.temp);}}
