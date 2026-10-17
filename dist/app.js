@@ -13,7 +13,7 @@
   const landingDemo={light:true,temp:23};
   const discoveryQuiz={step:0,answers:Array(8).fill(null)};
   const discoveryQuestions=[
-    {text:'Qual ambiente você quer automatizar?',multiple:false,options:['Residência','Quarto','Suíte','Outro ambiente']},
+    {text:'Qual ambiente você quer automatizar?',multiple:false,options:['Residência','Quarto','Suíte','Hotel/motel','Outro ambiente']},
     {text:'O que você gostaria de controlar?',multiple:true,options:['Iluminação','Ar-condicionado','TV e áudio','Cortinas','Mais de uma opção']},
     {text:'Quantos cômodos, quartos ou suítes quer incluir?',multiple:false,options:['1','2–5','6–10','Mais de 10']},
     {text:'Como os equipamentos são controlados hoje?',multiple:false,options:['Interruptores e controles separados','Um sistema central','Ainda estou planejando']},
@@ -27,7 +27,7 @@
     const step=discoveryQuiz.step;
     if(step>=discoveryQuestions.length){
       const answers=discoveryQuiz.answers;
-      const environment=answers[0]==='Residência'?'Residência':answers[0]==='Quarto'||answers[0]==='Suíte'?'Hotelaria':answers[0];
+      const environment=answers[0]==='Residência'?'Residência':answers[0]==='Quarto'||answers[0]==='Suíte'||answers[0]==='Hotel/motel'?'Hotelaria':answers[0];
       const lines=discoveryQuestions.map((q,i)=>q.text+' '+(Array.isArray(answers[i])?answers[i].join(', '):answers[i]||'')).join('\n');
       const message='Olá! Respondi ao quiz STAYCONTROL e gostaria de conversar sobre meu projeto.\n\n'+lines;
       const wa='https://wa.me/5561996089673?text='+encodeURIComponent(message);
