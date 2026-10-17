@@ -1,4 +1,4 @@
-const CACHE = 'staycontrol-curtain-motion-v26';
+const CACHE = 'staycontrol-realistic-suite-v27';
 const APP = [
   './', './index.html', './style.css', './theme.css', './model.js', './app.js',
   './docs/residencia/index.html', './docs/residencia/essencial.html', './docs/residencia/premium.html',
