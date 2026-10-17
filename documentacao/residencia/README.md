@@ -25,3 +25,9 @@ A arquitetura de referência usa console com Raspberry Pi 5 e tela touch de 7 po
 TV, ar-condicionado por infravermelho, transmissão real de áudio Bluetooth e comandos de faixa ainda dependem de integração física. A interface mantém a identificação de demonstração e o Bluetooth exige aceite na tela. A ponte serial de relés, RGB fixo, sensores e sinalização existe no código, mas esta entrega de layout não valida uma instalação física. Projeto elétrico, montagem, dissipação e proteções devem ser definidos para os componentes e cargas reais.
 
 Os arquivos técnicos compartilhados continuam em `hardware/`, `raspberry_pi/`, `server.py` e `lib/`. A separação documental não declara servidores, bancos ou instalações independentes já provisionados.
+
+## Acesso pela apresentação
+
+Selecione o ambiente, abra Administrador na tela Essencial/Premium e informe o PIN demonstrativo. Os links para a documentação geral e para cada versão ficam nessa área; os cartões públicos das versões exibem somente a entrada no aplicativo. Dentro de cada versão, a administração também oferece a aba Documentação.
+
+Esta organização limita a navegação na interface de demonstração. Os HTMLs técnicos continuam sendo arquivos estáticos; confidencialidade por URL exige autenticação de servidor.

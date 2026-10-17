@@ -6,7 +6,7 @@ Sistema demonstrativo de automação residencial e de quartos de hotel. O projet
 
 ## Projetos separados por ambiente
 
-A apresentação começa pela escolha **Residência** ou **Hotel**. Depois, o cliente vê somente as versões Essencial e Premium do ambiente selecionado.
+A apresentação começa pela escolha **Residência** ou **Hotel**. Depois, o cliente vê somente as versões Essencial e Premium do ambiente selecionado. Nessa tela, o botão Administrador abre o acesso por PIN; os links de documentação ficam dentro da área administrativa, separados por ambiente.
 
 - [Projeto Residência](projetos/residencia/README.md): documentação independente em [documentacao/residencia](documentacao/residencia/README.md).
 - [Projeto Hotel](projetos/hotel/README.md): documentação independente em [documentacao/hotel](documentacao/hotel/README.md).
