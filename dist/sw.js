@@ -1,9 +1,9 @@
-const CACHE = 'staycontrol-quiz-v10';
+const CACHE = 'staycontrol-portrait-v11';
 const APP = [
   './', './index.html', './style.css', './theme.css', './model.js', './app.js',
   './docs/residencia/index.html', './docs/residencia/essencial.html', './docs/residencia/premium.html',
   './docs/hotel/index.html', './docs/hotel/essencial.html', './docs/hotel/premium.html',
-  './favicon.svg', './manifest.webmanifest', './assets/staycontrol-logo.jpg',
+  './assets/julio-cezar-ferreira-martins.jpg', './favicon.svg', './manifest.webmanifest', './assets/staycontrol-logo.jpg',
   './celular.html','./celular.css','./celular.js','./celular.webmanifest','./assets/mobile-icon-192.png','./assets/mobile-icon-512.png'
 ];
 
