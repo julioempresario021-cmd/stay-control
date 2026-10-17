@@ -423,7 +423,10 @@ function landingPage(){
     discoveryQuiz.answers[index]=q.multiple?values:values[0];
     discoveryQuiz.step=Math.min(discoveryQuestions.length,discoveryQuiz.step+1);
     renderDiscoveryQuiz();
-    document.getElementById('sc-quiz-content')?.querySelector('legend, .sc-quiz-result h3')?.focus?.({preventScroll:true});
+    if(discoveryQuiz.step>=discoveryQuestions.length){
+      const demo=document.getElementById('suite-demo');
+      if(demo){const heading=demo.querySelector('h2');if(heading){heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true});}demo.scrollIntoView({behavior:'smooth',block:'start'});}
+    }else document.getElementById('sc-quiz-content')?.querySelector('legend')?.focus?.({preventScroll:true});
   });
   document.addEventListener('input',event=>{
     if(edition!=='escolher'||editionFamily)return;
